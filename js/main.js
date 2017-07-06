@@ -4,25 +4,25 @@ var records = document.getElementById('records');
 
 // Constructor para generar un nuevo producto
 function Producto(compra, cantidad) {
-  this.compra : compra.toLowerCase(),
-  this.producttID : (productos.length + 1),
-  this.cantidad : cantidad;
+  this.compra = compra.toLowerCase(), //en constructor se pone =, solo : en literal
+  this.producttID = (productos.length + 1),
+  this.cantidad = cantidad;
 };
 
 //Método para imprimir un producto en html
 Producto.prototype.toHTML = function () {
   var html = '';
   html += this.compra.toUpperCase() + '<br>';
-  html += 'Cantidad: ' + this.cantidades + '<br>';
+  html += 'Cantidad: ' + this.cantidad + '<br>';
   html += '<br><br>';
-  return "html";
+  return html;
 }
 
 //Función que une todas las compras guardadas en el array productos
 function mergeHTML (){
   var html = '';
-  for (i=0, i<productos.length; i++){
-    html += productos[i,].toHTML();
+  for (var i=0; i<productos.length; i++){
+    html += productos[i].toHTML();
   }
   return html;
 }
@@ -30,7 +30,7 @@ function mergeHTML (){
 //función que imprime un producto luego de ingresarlo
 function printHTML (html){
   records.innerHTML = '';
-  records.innerHTML = htm;
+  records.innerHTML = html;
 }
 
 // Cuando hacen click en el boton de nueva compra, crea una nueva compra y la añade al array de productos
@@ -38,8 +38,8 @@ var addCompra = document.getElementById('nuevacompra');
 addCompra.onclick = function() {
   var compra = prompt('Ingrese su nueva compra');
   var cantidad = prompt('Ingrese la cantidad');
-  var product  = new Compra (compra, cantidad);
-  productos.push(productos);
+  var product  = new Producto (compra, cantidad);
+  productos.push(product);
   printHTML(product.toHTML());
 };
 
